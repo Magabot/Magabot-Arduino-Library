@@ -8,8 +8,8 @@
 //#include "WProgram.h"
 #include "Magabot.h"
 #include <inttypes.h>
-//#include <Math.h>
-#include "Wire.h"
+#include <Math.h>
+//#include "Wire.h"
 
 Sonar::Sonar()
 {
@@ -178,23 +178,26 @@ void Magabot::readBattery()
 	batteryRead = analogRead(3);
 	batteryRead = analogRead(3);
           
-	if (batteryRead>690) 
+	if (batteryRead > 690)  //7.2V
+	//if (batteryRead > 380)  //12V
 	{
 		digitalWrite(13, LOW);
 		digitalWrite(12, LOW);
 		actuateMotors(0,0);
 	}
-	else if (batteryRead>616)
+	else if (batteryRead > 616) //7.2V
+	//else if (batteryRead > 350) //12V
 	{
 		digitalWrite(13, HIGH);
 		digitalWrite(12, LOW);
 	}
-	else if (batteryRead>584)
+	else if (batteryRead > 584) //7.2V
+	//else if (batteryRead > 330) //12V
 	{
 		digitalWrite(13, HIGH);
 		digitalWrite(12, HIGH);
 	}
-	else 
+	else
 	{
 		digitalWrite(13, LOW);
 		digitalWrite(12, HIGH);

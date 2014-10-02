@@ -205,14 +205,14 @@ void obstacleAvoid()
   int sideDistance = 50;
 
 
-  if(robot.bumperRead[0])
+  if(robot.bumperRead[1])
   {
     reverseState = 1;
 
     robot.actuateMotors(-5,-veloc2);  
     becoTime = millis()+1000;  
   }
-  else if(robot.bumperRead[1])
+  else if(robot.bumperRead[0])
   {
     reverseState = 1;
     robot.actuateMotors(-veloc1,-5);  
@@ -245,7 +245,7 @@ void obstacleAvoid()
   int bestDirection = 0;
   int bestDirectionValue = 0;
 
-  for (int count = 0;count<5;count++)
+  for (int count = 1;count<6;count++)
   {
     if(robot.sonarRead[count].read() > bestDirectionValue)
     {
@@ -256,16 +256,16 @@ void obstacleAvoid()
   String dir;
   if (reverseState == 0)
   {    
-    if(robot.sonarRead[2].read() > frontDistance)
+    if(robot.sonarRead[3].read() > frontDistance)
     {
       robot.actuateMotors(veloc1,veloc2);
       robot.actuateLEDs(0,255,0);
-      if(robot.sonarRead[0].read() < sideDistance || robot.sonarRead[1].read() < sideDistance)
+      if(robot.sonarRead[1].read() < sideDistance || robot.sonarRead[2].read() < sideDistance)
       {
         robot.actuateMotors(veloc1,0);  
         robot.actuateLEDs(255,255,0);
       }
-      else if(robot.sonarRead[3].read() < sideDistance || robot.sonarRead[4].read() < sideDistance)
+      else if(robot.sonarRead[4].read() < sideDistance || robot.sonarRead[5].read() < sideDistance)
       {
         robot.actuateMotors(0,veloc2);  
         robot.actuateLEDs(255,255,0);
