@@ -31,10 +31,10 @@ irState	LITERAL1
 irMaxValue	LITERAL1
 sonarRead	LITERAL1
 leftClicks 	LITERAL1
-rightClicks LITERAL1
-leftMotorVelocity LITERAL1
-rightMotorVelocity LITERAL1
-clicksPerTurn LITERAL1
+rightClicks	LITERAL1
+leftMotorVelocity	LITERAL1
+rightMotorVelocity	LITERAL1
+clicksPerTurn	LITERAL1
 sonarMaxValue	LITERAL1
 sonarValue	LITERAL1
 bumperRead	LITERAL1
